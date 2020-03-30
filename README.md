@@ -10,4 +10,4 @@ This is the server side of my [reviews app](https://github.com/mmmikolay/reviews
 
 3. **Resolvers:** Task of the resolvers is mapping the input or output of a query/mutation to the related type described in the *Schema*. In this case, as we use *models* as an intermediate layer, the actual mapping is done between the resolvers and fields described in the respective model of a certain GraphQL type.
 
-4. **Authentication:** There is also a middleware called **is-auth**, which checks the authentication data received from the client. On a successful login attempt, server sends an encrypted token to the client as a secure cookie. When a request that requires user authentication is made, auth logic checks the received token to check if the request made by a valid user.
+4. **Authentication:** There is also a middleware called **is-auth**, which checks the authentication data received from the client. On a successful login attempt, server sends an encrypted token to the client as a http-only cookie. When a request that requires user authentication is made, auth logic checks the received token to check if the request made by a valid user.

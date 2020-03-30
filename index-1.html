@@ -1,0 +1,19 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unknown </title></head><body>
+<h1 id="reviewsapp-server">ReviewsApp - Server</h1>
+<p>This is the server side of my <a href="https://github.com/mmmikolay/reviewsapp">reviews app</a>. It is an Express GraphQL server that establishes the connection between a MongoDB cluster (where I keep the reviews data), and the client side(where all the data is vidible by the user).</p>
+<h2 id="server-structure">Server Structure</h2>
+<ol>
+<li>
+<p><strong>Schema:</strong> We need to provide a GraphQL schema to the server (<em>app.js</em> in this instance) describing the access points, methods, and data types required by our queries. All the operations will be run according to the info provided in the schema.</p>
+</li>
+<li>
+<p><strong>Models:</strong> Models are there to make the connection between GraphQL types defined in the <em>Schema</em>, and data returned by <em>Resolvers</em>. By using a <em>model</em>, logic to read from, or write to a GraphQL type, and process of actually generating/returning data is separated.</p>
+</li>
+<li>
+<p><strong>Resolvers:</strong> Task of the resolvers is mapping the input or output of a query/mutation to the related type described in the <em>Schema</em>. In this case, as we use <em>models</em> as an intermediate layer, the actual mapping is done between the resolvers and fields described in the respective model of a certain GraphQL type.</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> There is also a middleware called <strong>is-auth</strong>, which checks the authentication data received from the client. On a successful login attempt, server sends an encrypted token to the client as a secure cookie. When a request that requires user authentication is made, auth logic checks the received token to check if the request made by a valid user.</p>
+</li>
+</ol>
+</body></html>
